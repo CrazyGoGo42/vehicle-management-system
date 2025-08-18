@@ -1,0 +1,76 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="VehicleManager.Avalonia.AddVehicleWindow"
+        Title="Neues Fahrzeug" Width="400" Height="500">
+    
+    <StackPanel Margin="20">
+        <TextBlock Text="Neues Fahrzeug hinzufügen" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Marke:" Margin="0,5"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="MarkeTextBox" Margin="5"/>
+            
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Modell:" Margin="0,5"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="ModellTextBox" Margin="5"/>
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Baujahr:" Margin="0,5"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="BaujahrTextBox" Margin="5"/>
+            
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Kaufpreis:" Margin="0,5"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="KaufpreisTextBox" Margin="5"/>
+            
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Leistung (PS):" Margin="0,5"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Name="LeistungTextBox" Margin="5"/>
+            
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Kilometerstand:" Margin="0,5"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Name="KilometerstandTextBox" Margin="5"/>
+            
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Kraftstoff:" Margin="0,5"/>
+            <ComboBox Grid.Row="6" Grid.Column="1" Name="KraftstoffComboBox" Margin="5">
+                <ComboBoxItem Content="Benzin"/>
+                <ComboBoxItem Content="Diesel"/>
+                <ComboBoxItem Content="Elektro"/>
+                <ComboBoxItem Content="Hybrid"/>
+            </ComboBox>
+            
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Getriebe:" Margin="0,5"/>
+            <ComboBox Grid.Row="7" Grid.Column="1" Name="GetriebeComboBox" Margin="5">
+                <ComboBoxItem Content="Manuell"/>
+                <ComboBoxItem Content="Automatik"/>
+            </ComboBox>
+            
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="Farbe:" Margin="0,5"/>
+            <TextBox Grid.Row="8" Grid.Column="1" Name="FarbeTextBox" Margin="5"/>
+            
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="Fahrzeugtyp:" Margin="0,5"/>
+            <ComboBox Grid.Row="9" Grid.Column="1" Name="FahrzeugtypComboBox" Margin="5">
+                <ComboBoxItem Content="PKW"/>
+                <ComboBoxItem Content="SUV"/>
+                <ComboBoxItem Content="LKW"/>
+                <ComboBoxItem Content="Motorrad"/>
+            </ComboBox>
+        </Grid>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+            <Button Name="SaveButton" Content="Speichern" Width="100" Margin="5"/>
+            <Button Name="CancelButton" Content="Abbrechen" Width="100" Margin="5"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

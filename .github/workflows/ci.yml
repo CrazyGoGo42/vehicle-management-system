@@ -1,0 +1,100 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        dotnet-version: ['8.0.x']
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+        
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+          
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build solution
+      run: dotnet build --configuration Release --no-restore
+      
+    - name: Run tests
+      run: dotnet test --configuration Release --no-build --verbosity normal
+      
+    - name: Publish Avalonia App (Linux)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        dotnet publish src/VehicleManager.Avalonia/VehicleManager.Avalonia/VehicleManager.Avalonia.csproj \
+          --configuration Release \
+          --runtime linux-x64 \
+          --self-contained true \
+          --output ./publish/linux-x64
+          
+    - name: Publish Avalonia App (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        dotnet publish src/VehicleManager.Avalonia/VehicleManager.Avalonia/VehicleManager.Avalonia.csproj `
+          --configuration Release `
+          --runtime win-x64 `
+          --self-contained true `
+          --output ./publish/win-x64
+          
+    - name: Publish Avalonia App (macOS)
+      if: matrix.os == 'macos-latest'
+      run: |
+        dotnet publish src/VehicleManager.Avalonia/VehicleManager.Avalonia/VehicleManager.Avalonia.csproj \
+          --configuration Release \
+          --runtime osx-x64 \
+          --self-contained true \
+          --output ./publish/osx-x64
+          
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: vehicle-manager-${{ matrix.os }}
+        path: ./publish/*/
+        
+  code-quality:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Install dotnet format
+      run: dotnet tool install -g dotnet-format
+      
+    - name: Check code formatting
+      run: dotnet format --verify-no-changes --verbosity diagnostic
+      
+    - name: Run security scan
+      uses: security-code-scan/security-code-scan-action@v1
+      with:
+        project-path: VehicleManager.sln

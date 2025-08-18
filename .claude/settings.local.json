@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet new:*)",
+      "Bash(mkdir:*)",
+      "Bash(cd:*)",
+      "Bash(dotnet --version)",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet sln add:*)",
+      "Bash(rm:*)",
+      "Bash(dotnet build)",
+      "Bash(dotnet run:*)",
+      "Bash(mysql:*)",
+      "Bash(cp:*)",
+      "Bash(dotnet add reference:*)",
+      "Bash(dotnet test)",
+      "Bash(dotnet build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

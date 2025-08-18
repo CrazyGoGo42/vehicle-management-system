@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="VehicleManager.Avalonia.MainWindow"
+        Title="Fahrzeugverwaltung" Width="900" Height="600">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Titel -->
+        <TextBlock Grid.Row="0" Text="Fahrzeugverwaltung" FontSize="24" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="10"/>
+        
+        <!-- Suchbereich -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+            <TextBox Name="SearchTextBox" Width="200" Watermark="Fahrzeug suchen..."/>
+            <Button Name="SearchButton" Content="Suchen" Margin="10,0,0,0"/>
+            <Button Name="ShowAllButton" Content="Alle anzeigen" Margin="10,0,0,0"/>
+            <Button Name="AddButton" Content="Hinzufügen" Margin="10,0,0,0"/>
+        </StackPanel>
+        
+        <!-- Fahrzeugliste -->
+        <ListBox Grid.Row="2" Name="VehicleListBox" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="{Binding Marke}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Modell}"/>
+                        <TextBlock Text="{Binding Baujahr, StringFormat='Baujahr: {0}'}"/>
+                        <TextBlock Text="{Binding Kaufpreis, StringFormat='Preis: {0:C}'}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <!-- Aktionen -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Name="CalculateValueButton" Content="Wert berechnen"/>
+            <Button Name="ExportPdfButton" Content="PDF exportieren" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
