@@ -7,15 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C11B3DE7-88C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VehicleManager.Core", "VehicleManager.Core", "{62006491-4A95-461A-AAE3-80A5736026EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManager.Core", "src\VehicleManager.Core\VehicleManager.Core\VehicleManager.Core.csproj", "{6AA82F29-EC59-4764-B8BC-9D7B1CB1FA99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManager.Core", "backend\VehicleManager.Core\VehicleManager.Core\VehicleManager.Core.csproj", "{6AA82F29-EC59-4764-B8BC-9D7B1CB1FA99}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VehicleManager.WPF", "VehicleManager.WPF", "{C9B05DC7-30AE-453D-9A05-77A53452BAA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManager.WPF", "src\VehicleManager.WPF\VehicleManager.WPF\VehicleManager.WPF.csproj", "{CABCDBB9-3AAB-46F9-A4AA-CE4F292A037C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManager.WPF", "frontend\VehicleManager.WPF\VehicleManager.WPF\VehicleManager.WPF.csproj", "{CABCDBB9-3AAB-46F9-A4AA-CE4F292A037C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VehicleManager.Avalonia", "VehicleManager.Avalonia", "{C1F29C81-800D-454F-976B-27595F7BEF77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManager.Avalonia", "src\VehicleManager.Avalonia\VehicleManager.Avalonia\VehicleManager.Avalonia.csproj", "{5291E727-9F28-40C9-95AC-64C0A5FD648B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManager.Avalonia", "frontend\VehicleManager.Avalonia\VehicleManager.Avalonia\VehicleManager.Avalonia.csproj", "{5291E727-9F28-40C9-95AC-64C0A5FD648B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E2FB3939-3D0E-4567-BD0D-9885E74A92BB}"
 EndProject

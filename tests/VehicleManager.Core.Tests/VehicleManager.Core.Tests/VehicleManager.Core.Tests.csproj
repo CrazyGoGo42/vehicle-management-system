@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\VehicleManager.Core\VehicleManager.Core\VehicleManager.Core.csproj" />
+    <ProjectReference Include="..\..\..\backend\VehicleManager.Core\VehicleManager.Core\VehicleManager.Core.csproj" />
   </ItemGroup>
 
 </Project>
